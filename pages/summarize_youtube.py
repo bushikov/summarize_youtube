@@ -47,14 +47,16 @@ def get_content():
         with st.spinner("Fetching content..."):
             loader = YoutubeLoader.from_youtube_url(
                 f"{YOUTUBE_URL}{movie["id"]}",
-                add_video_info=True,  # タイトルや再生数も取得できる, pytubeのインストールが必要
+                # add_video_info=True,  # タイトルや再生数も取得できる, pytubeのインストールが必要
+                add_video_info=False,
                 language=["en", "ja"]  # 英語 -> 日本語の優先順位で字幕を取得
             )
             try:
                 res = loader.load()
                 if res:
                     content = res[0].page_content
-                    title = res[0].metadata["title"]
+                    # title = res[0].metadata["title"]
+                    title = movie["title"]
                     return f"Title: {title}\n\n{content}"
                 else:
                     return None

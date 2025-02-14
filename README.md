@@ -1,5 +1,7 @@
 # Youtube動画を要約するアプリ
 
+任意のワードでYoutube動画を検索し、選択した動画を要約する
+
 ## インストール
 ```shell
 $ pip install -r requirements.txt
